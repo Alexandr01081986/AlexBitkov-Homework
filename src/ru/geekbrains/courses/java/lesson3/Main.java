@@ -42,13 +42,14 @@ public class Main {
     }
     public static void GuessTheWord(String[] args)
         throws IOException {
-        String[] words = {"apple", "orange", "lemon", "banana", "apricot",
+        String[] words =
+                {"apple", "orange", "lemon", "banana", "apricot",
                 "avocado", "broccoli", "carrot", "cherry", "garlic", "grape",
                 "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive",
                 "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin",
                 "potato"};
-        String guess = getRandomWord(words); // ñëîâî, êîòîðîå íóæíî óãàäàòü
-        String maskedGuess = maskWord(guess); // ìàêñèðóåì ñëîâî, óâåëè÷èâàÿ äëèíó äî 15 ñèìâîëîâ è äîáàâëÿÿ ñèìâîë #
+        String guess = getRandomWord(words);
+        String maskedGuess = maskWord(guess);
         System.out.println("Угадайте слово");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -72,17 +73,17 @@ public class Main {
 
     }
 
-    static String getRandomWord(String[] s) {
+    static String getRandomWord(String[] ns) {
         Random r = new Random();
-        return s[r.nextInt(s.length - 1)];
+        return ns[r.nextInt(ns.length - 1)];
     }
 
-    static String maskWord(String s) {
+    static String maskWord(String ns) {
         String mask = "###############";
-        for (int i = s.length() - 1; i < mask.length() - 1; i++) {
-            s += mask.charAt(i);
+        for (int i = ns.length() - 1; i < mask.length() - 1; i++) {
+            ns += mask.charAt(i);
         }
-        return s;
+        return ns;
     }
 
 }
